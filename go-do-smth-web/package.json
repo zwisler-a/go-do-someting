@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "cp src/index.html ./dist/ && cp -r src/assets/ ./dist/ && cp src/main.css ./dist/ && webpack --config webpack.prod.js"
+    "cp:index": "cp src/index.html ./dist/",
+    "cp:assets": " cp -r src/assets/ ./dist/",
+    "cp:main": " cp src/main.css ./dist/ ",
+    "build": "npm run cp:index && npm run cp:assets && npm run cp:main && webpack --config webpack.prod.js"
   },
   "author": "",
   "license": "ISC",
