@@ -7,7 +7,7 @@
     "allinstall": "npm run preinstall:be && npm run preinstall:web",
     "preinstall:be": "cd go-do-smth-backend && npm install",
     "preinstall:web": "cd go-do-smth-web && npm install",
-    "build": "rm -rf dist && npm run build:be && npm run build:web && npm run cp",
+    "build": "rm -rf dist && mkdir dist && npm run build:be && npm run build:web && npm run cp",
     "build:be": "cd go-do-smth-backend && npm run build && cp package.json dist/",
     "build:web": "cd go-do-smth-web && npm run build",
     "cp": "cp -r go-do-smth-backend/dist/ dist/ && cp -r go-do-smth-web/dist/ dist/client"
