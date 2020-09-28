@@ -10,3 +10,21 @@ import('./component/todo-view.component');
 import('./component/add-todo.component');
 import('./component/settings.component');
 import('./component/todo.component');
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').then(
+      function (registration) {
+        // Registration was successful
+        console.log(
+          'ServiceWorker registration successful with scope: ',
+          registration.scope
+        );
+      },
+      function (err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+      }
+    );
+  });
+}

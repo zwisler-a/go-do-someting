@@ -1,0 +1,8 @@
+{
+    "name": "Go do something",
+    "short_name": "Go do something",
+    "lang": "de-DE",
+    "start_url": "/",
+    "display": "fullscreen",
+    "theme_color": "#85c9c8"
+  }
