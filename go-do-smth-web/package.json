@@ -8,7 +8,7 @@
     "cp:index": "cp src/index.html ./dist/index.html",
     "cp:assets": " cp -r src/assets/ ./dist/",
     "cp:main": " cp src/main.css ./dist/main.css ",
-    "build": "mkdir dist && npm run cp:index && npm run cp:assets && npm run cp:main && webpack --config webpack.prod.js"
+    "build": "rm -rf ./dist && mkdir dist && npm run cp:index && npm run cp:assets && npm run cp:main && webpack --config webpack.prod.js"
   },
   "author": "",
   "license": "ISC",
