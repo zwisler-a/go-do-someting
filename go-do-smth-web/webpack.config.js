@@ -20,7 +20,7 @@ module.exports = {
       index: 'index.html',
     },
     proxy: {
-      '/api': 'http://localhost:3000'
+      '/api': 'http://localhost:4000'
     }
   },
   resolve: {
