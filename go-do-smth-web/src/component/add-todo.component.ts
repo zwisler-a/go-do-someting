@@ -5,7 +5,7 @@ import { TodoService } from '../service/todo.service';
 @CustomElement({
   selector: 'app-add-todo',
   template: `
-        <app-header title="Todo Hinzufügen"></app-header>
+        <app-header up="app-settings" title="Todo Hinzufügen"></app-header>
         <form id="form" class="card">
             <input placeholder="Name" id="name" name="name" />
             <textarea placeholder="Description" id="description" name="description"></textarea>

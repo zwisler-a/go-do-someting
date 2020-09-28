@@ -5,7 +5,7 @@ import { RouterService } from '../service/router.service';
   selector: 'app-settings',
   template: `
 
-        <app-header title="Settings"></app-header>
+        <app-header up="app-main" title="Settings"></app-header>
         
         <div class="card">
           <app-todo-list></app-todo-list>
