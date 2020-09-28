@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow: 
+Allow: /
+Allow: /main/app-settings
+Disallow: /assets
