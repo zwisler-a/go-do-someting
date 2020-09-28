@@ -2,7 +2,7 @@ build:
   image: node:latest
   stage: build
   script:
-    - npm install --progress=false
+    - npm allinstall
     - npm run build
   artifacts:
     expire_in: 1 week

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "preinstall": "npm run preinstall:be && npm run preinstall:web",
+    "allinstall": "npm run preinstall:be && npm run preinstall:web",
     "preinstall:be": "cd go-do-smth-backend && npm install",
     "preinstall:web": "cd go-do-smth-web && npm install",
     "build": "rm -rf dist && npm run build:be && npm run build:web && npm run cp",
