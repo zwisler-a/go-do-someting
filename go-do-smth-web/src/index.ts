@@ -8,10 +8,14 @@ import('./component/todo-list.component');
 import('./component/header.component');
 import('./component/todo-view.component');
 import('./component/add-todo.component');
+import('./component/loading.component');
 import('./component/settings.component');
 import('./component/todo.component');
 
-if ('serviceWorker' in navigator) {
+if (
+  'serviceWorker' in navigator &&
+  !window.location.origin.includes('localhost')
+) {
   window.addEventListener('load', function () {
     navigator.serviceWorker.register('/sw.js').then(
       function (registration) {

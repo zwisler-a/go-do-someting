@@ -16,10 +16,9 @@ import { TodoService } from '../service/todo.service';
 export class MainComponent extends HTMLElement {
   connectedCallback() {}
 
-  async fetchRandomTodo() {
-    const todoPromise = TodoService.fetchRandomTodo();
-    setTimeout(async () => {
-      RouterService.navigate('main', 'app-todo', await todoPromise);
+  fetchRandomTodo() {
+    setTimeout(() => {
+      RouterService.navigate('main', 'app-todo');
     }, 500);
   }
 

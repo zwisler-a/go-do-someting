@@ -5,7 +5,7 @@ import { TodoService } from '../service/todo.service';
 @CustomElement({
   selector: 'app-todo-list',
   template: `
-        Loading ...
+        <app-loading></app-loading>
     `,
 })
 export class TodoListComponent extends HTMLElement {
@@ -22,7 +22,7 @@ export class TodoListComponent extends HTMLElement {
         }</li>`
     );
     this.innerHTML = `
-        <ul>
+        <ul class="fadein">
             ${listStr.join('')}
         </ul>
     `;

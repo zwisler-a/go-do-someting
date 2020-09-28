@@ -20,15 +20,18 @@ export function CustomElement(config: CustomElementConfig) {
         var bind = el.getAttribute('bind').split(':');
         var domAttr = bind[0].trim(); // the attribute on the DOM element
         var itemAttr = bind[1].trim(); // the attribute the object
-        let val = this[itemAttr];
+        var onAttribute = bind.length === 3 ? bind[2].trim() === 'true' : false; // the attribute the object
+        let val = this[itemAttr] || '';
         Object.defineProperty(this, itemAttr, {
           get: () => val,
           set: (newVal) => {
             val = newVal;
             el[domAttr] = val;
+            if (onAttribute) el.setAttribute(domAttr, val);
           },
         });
         el[domAttr] = val;
+        if (onAttribute) el.setAttribute(domAttr, val);
         el.setAttribute('bound', el.getAttribute('bind'));
         el.removeAttribute('bind');
       });
