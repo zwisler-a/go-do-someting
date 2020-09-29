@@ -1,6 +1,6 @@
-import { CustomElement } from '../core/custom-element.decorator';
-import { RouterService } from '../service/router.service';
-import { TodoService } from '../service/todo.service';
+import { CustomElement } from '../../core/custom-element.decorator';
+import { RouterService } from '../../core/router/router.service';
+import { TodoService } from '../todo.service';
 
 @CustomElement({
   selector: 'app-todo-list',

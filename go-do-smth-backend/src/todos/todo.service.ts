@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { writeFileSync } from 'fs';
 import { readFileSync } from 'fs';
+import { TodoDoneStatus } from 'src/dto/todo-done.dto';
 import { Todo } from 'src/dto/todo.dto';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -18,7 +19,17 @@ export class TodoService {
     return this.todos[Math.floor(Math.random() * this.todos.length)];
   }
 
-  getTodo(id: string) {
+  recordTodoStatus(status: TodoDoneStatus): Todo {
+    const todo = this.getTodo(status.id);
+    if (status.isDone) {
+      todo.done = (todo.done || 0) + 1;
+    } else {
+      todo.rejected += (todo.rejected || 0) + 1;
+    }
+    return this.updateTodo(todo);
+  }
+
+  getTodo(id: string): Todo {
     return this.todos.find(todo => todo.id === id);
   }
 

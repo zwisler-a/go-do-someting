@@ -1,0 +1,60 @@
+.stamp {
+  transform: translate(-50%, -50%) rotate(12deg);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  color: #555;
+  font-size: 3rem;
+  font-weight: 700;
+  border: 0.25rem solid #555;
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  text-transform: uppercase;
+  border-radius: 1rem;
+  font-family: 'Courier';
+  -webkit-mask-image: url('/assets/noise.png');
+  -webkit-mask-size: 944px 604px;
+  mix-blend-mode: multiply;
+  animation: stamp 0.5s forwards;
+}
+
+.is-nope {
+  color: #d23;
+  border: 0.5rem double #d23;
+  transform: translate(-50%, -50%) rotate(3deg);
+  -webkit-mask-position: 2rem 3rem;
+  font-size: 2rem;
+}
+
+.is-approved {
+  color: #0a9928;
+  border: 0.5rem solid #0a9928;
+  -webkit-mask-position: 13rem 6rem;
+  transform: translate(-50%, -50%) rotate(-14deg);
+  border-radius: 0;
+}
+
+.is-draft {
+  color: #c4c4c4;
+  border: 1rem double #c4c4c4;
+  transform: rotate(-5deg);
+  font-size: 6rem;
+  font-family: 'Open sans', Helvetica, Arial, sans-serif;
+  border-radius: 0;
+  padding: 0.5rem;
+}
+@-webkit-keyframes stamp {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+    transform-origin: 50% 50%;
+    transform: translate(-50%, -50%) rotate(-2deg) scale(5);
+    transition: all 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-15deg) scale(1);
+  }
+}

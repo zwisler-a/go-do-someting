@@ -1,0 +1,70 @@
+.main-page {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.main-button {
+  overflow: hidden;
+  position: relative;
+  padding: 20px 40px;
+  margin-bottom: 100px;
+  background: none;
+  border-width: 3px;
+  font-weight: bolder;
+}
+
+.main-button:focus {
+  overflow: visible;
+}
+.main-button:focus::after {
+  opacity: 0;
+  border-width: 15px;
+  animation: bigRing 1s;
+}
+.main-button::after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 6px solid #00ffcb;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-timing-function: linear;
+  animation: ring 3.5s infinite;
+}
+
+@keyframes ring {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+@keyframes bigRing {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 1;
+  }
+  100% {
+    width: 600px;
+    height: 600px;
+    opacity: 0;
+  }
+}

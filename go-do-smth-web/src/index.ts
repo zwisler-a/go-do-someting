@@ -1,21 +1,17 @@
-console.log('Application Startup');
+import { LoggerService } from './core/logger.service';
+
+const devMode = window.location.origin.includes('localhost');
+
+if(devMode) LoggerService.setDevMode();
+
+LoggerService.debug('Index', 'Application Startup');
 
 import('./component/app.component');
-import('./component/stamp.component');
-import('./component/router.component');
-import('./component/main.component');
-import('./component/todo-list.component');
-import('./component/header.component');
-import('./component/todo-view.component');
-import('./component/add-todo.component');
-import('./component/loading.component');
-import('./component/settings.component');
-import('./component/todo.component');
+import('./core/router/router.component');
+import('./component/_lib/_module');
+import('./component/module');
 
-if (
-  'serviceWorker' in navigator &&
-  !window.location.origin.includes('localhost')
-) {
+if ('serviceWorker' in navigator && !devMode) {
   window.addEventListener('load', function () {
     navigator.serviceWorker.register('/sw.js').then(
       function (registration) {
@@ -26,7 +22,6 @@ if (
         );
       },
       function (err) {
-        // registration failed :(
         console.log('ServiceWorker registration failed: ', err);
       }
     );

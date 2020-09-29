@@ -1,0 +1,27 @@
+@import './component/main/main.css';
+@import './component/_lib/background-image.component.css';
+@import './component/_lib/card.component.css';
+@import './component/_lib/header.component.css';
+@import './component/_lib/stamp.component.css';
+@import './component/global.css';
+@import './component/random-todo/random-todo.component.css';
+
+
+
+
+.fadein.delayed {
+  opacity: 0;
+  animation-delay: 0.5s;
+}
+.fadein {
+  animation: fadein 0.3s forwards;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+

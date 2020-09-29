@@ -1,21 +1,21 @@
-import { CustomElement } from '../core/custom-element.decorator';
-import { getRouterData } from '../service/router.service';
-import { TodoService } from '../service/todo.service';
+import { CustomElement } from '../../core/custom-element.decorator';
+import { getRouterData } from '../../core/router/router.service';
+import { TodoService } from '../todo.service';
 
 @CustomElement({
   selector: 'app-todo-view',
   template: `
         <app-header bind="title:title"></app-header>
-        <form id="form" bind="class:formClass:true">
-            <input bind="value:todoName" placeholder="Name" id="name" name="name" />
-            <textarea bind="value:todoDesc" placeholder="Description" id="description" name="description"></textarea>
-            <button onclick="§§.submit(...arguments)">Speichern</button>
-        </form>
-        <div bind="class:loadingClass:true">
-          <app-loading></app-loading>
-        </div>
+        <app-card bind="class:formClass:true">
+          <form id="form" >
+              <input bind="value:todoName" placeholder="Name" id="name" name="name" />
+              <textarea bind="value:todoDesc" placeholder="Description" id="description" name="description"></textarea>
+              <button onclick="§§.submit(...arguments)">Speichern</button>
+          </form>
+        </app-card>
+        <app-loading bind="class:loadingClass:true"></app-loading>
         <button class="action icon" onclick="§§.delete()">
-          <span class="material-icons">delete</span>
+          <app-icon icon="delete" />
         </button>
     `,
 })
@@ -30,8 +30,8 @@ export class TodoViewComponent extends HTMLElement {
   loadingClass = ``;
 
   setLoading(loading: boolean) {
-    this.formClass = `card ${loading ? 'hidden' : ''}`;
-    this.loadingClass = `card ${loading ? '' : 'hidden'}`;
+    this.formClass = `${loading ? 'hidden' : 'fadein'}`;
+    this.loadingClass = `${loading ? '' : 'hidden'}`;
   }
 
   async connectedCallback() {

@@ -1,0 +1,41 @@
+.fullscreen-card {
+  display: flex;
+  flex-direction: column;
+}
+.fullscreen-card-wrapper {
+  height: 100%;
+  padding: 5vh 16px 0 16px;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.fullscreen-card .action button.ok {
+  color: #238823;
+  border-color: #238823;
+  background-color: #23882310;
+}
+.fullscreen-card .action button.nok {
+  color: #d2222d;
+  border-color: #d2222d;
+  background-color: #d2222e10;
+}
+.fullscreen-card .action button {
+  padding: 0;
+  border-radius: 100%;
+  border-style: solid;
+  border-width: 1px;
+  background: none;
+  width: 70px;
+  height: 70px;
+}
+.fullscreen-card .action button:first-of-type {
+  margin-right: 100px;
+}
+.fullscreen-card .action {
+  flex: 1 1 auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}

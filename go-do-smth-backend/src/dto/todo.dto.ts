@@ -9,4 +9,10 @@ export class Todo {
 
   @ApiProperty()
   description: string;
+
+  @ApiProperty({ required: false })
+  done: number;
+
+  @ApiProperty({ required: false })
+  rejected: number;
 }

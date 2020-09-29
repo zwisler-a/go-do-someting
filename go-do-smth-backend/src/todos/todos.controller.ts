@@ -8,6 +8,7 @@ import {
   Query,
 } from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { TodoDoneStatus } from 'src/dto/todo-done.dto';
 import { Todo } from 'src/dto/todo.dto';
 import { TodoService } from './todo.service';
 
@@ -42,6 +43,11 @@ export class TodosController {
   @Post('update')
   updateTodo(@Body() todo: Todo) {
     return this.todoService.updateTodo(todo);
+  }
+
+  @Post('done')
+  doneTodo(@Body() status: TodoDoneStatus) {
+    return this.todoService.recordTodoStatus(status);
   }
 
   @Delete('delete/:id')

@@ -1,3 +1,5 @@
+import { LoggerService } from '../logger.service';
+
 type RouterFunction = (comp: string, data?: any) => void;
 
 export const getRouterData = (_this: any, prop?: string) => {
@@ -37,8 +39,8 @@ export const RouterService = new (class {
   }
 
   navigate(name: string, comp: string, data?: any, surpressHistory = false) {
-    console.log(
-      '[Router]',
+    LoggerService.debug(
+      'Router',
       `RouterComponent ${name} navigate to ${comp}`,
       data
     );

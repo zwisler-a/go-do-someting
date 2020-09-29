@@ -1,10 +1,9 @@
 import { CustomElement } from '../core/custom-element.decorator';
-import { RouterService } from '../service/router.service';
 
 @CustomElement({
   selector: 'app-root',
   template: `
-        <div class="background-image"></div>
+        <app-background></app-background>
         <app-router defaultsTo="app-main" name="main"></app-router>
     `,
 })

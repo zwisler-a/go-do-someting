@@ -1,5 +1,5 @@
-import { CustomElement } from '../core/custom-element.decorator';
-import { RouterService } from '../service/router.service';
+import { CustomElement } from '../custom-element.decorator';
+import { RouterService } from './router.service';
 
 @CustomElement({
   selector: 'app-router',

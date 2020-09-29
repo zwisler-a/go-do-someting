@@ -1,15 +1,17 @@
-import { CustomElement } from '../core/custom-element.decorator';
-import { RouterService } from '../service/router.service';
-import { TodoService } from '../service/todo.service';
+import { CustomElement } from '../../core/custom-element.decorator';
+import { RouterService } from '../../core/router/router.service';
+import { TodoService } from '../todo.service';
 
 @CustomElement({
   selector: 'app-add-todo',
   template: `
         <app-header up="app-settings" title="Todo Hinzufügen"></app-header>
-        <form id="form" class="card">
+        <form id="form">
+          <app-card>
             <input placeholder="Name" id="name" name="name" />
             <textarea placeholder="Description" id="description" name="description"></textarea>
             <button onclick="§§.submit(...arguments)">Add</button>
+          </app-card>
         </form>
     `,
 })

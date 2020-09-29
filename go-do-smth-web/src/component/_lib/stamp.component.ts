@@ -1,4 +1,4 @@
-import { CustomElement } from '../core/custom-element.decorator';
+import { CustomElement } from '../../core/custom-element.decorator';
 
 @CustomElement({
   selector: 'app-stamp',

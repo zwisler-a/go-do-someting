@@ -1,13 +1,12 @@
-import { textChangeRangeIsUnchanged } from 'typescript';
-import { CustomElement } from '../core/custom-element.decorator';
-import { RouterService } from '../service/router.service';
+import { CustomElement } from '../../core/custom-element.decorator';
+import { RouterService } from '../../core/router/router.service';
 
 @CustomElement({
   selector: 'app-header',
   template: `
     <nav>
       <button onclick="§§.navigateBack()">
-        <span class="material-icons">arrow_back</span>
+        <app-icon icon="arrow_back"></app-icon>
       </button>
       <h1 bind="innerText:title"></h1>
     </nav>`,

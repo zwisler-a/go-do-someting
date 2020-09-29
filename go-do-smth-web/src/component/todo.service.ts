@@ -22,6 +22,15 @@ export const TodoService = new (class {
     return await response.json();
   }
 
+  async recordDecision(id: any, isDone: boolean) {
+    const response = await fetch(this.API_BASE + 'api/todos/done', {
+      method: 'POST',
+      headers: [['Content-Type', 'application/json']],
+      body: JSON.stringify({ id, isDone }),
+    });
+    return await response.json();
+  }
+
   async deleteTodo(id: string) {
     this.todoCache = [];
     const response = await fetch(this.API_BASE + 'api/todos/delete/' + id, {

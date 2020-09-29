@@ -1,0 +1,13 @@
+app-card {
+  display: block;
+  border-radius: 4px;
+  max-width: 450px;
+  width: calc(100% - 32px);
+  box-sizing: border-box;
+  margin: 0 auto 5vh auto;
+  background: rgba(255, 255, 255, 0.705);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}

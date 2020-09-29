@@ -1,5 +1,5 @@
-import { CustomElement } from '../core/custom-element.decorator';
-import { RouterService } from '../service/router.service';
+import { CustomElement } from '../../core/custom-element.decorator';
+import { RouterService } from '../../core/router/router.service';
 
 @CustomElement({
   selector: 'app-settings',
@@ -7,11 +7,11 @@ import { RouterService } from '../service/router.service';
 
         <app-header up="app-main" title="Settings"></app-header>
         
-        <div class="card">
+        <app-card>
           <app-todo-list></app-todo-list>
-        </div>
+        </app-card>
         <button class="action icon" onclick="§§.naviagteAddTodo()">
-          <span class="material-icons">post_add</span>
+          <app-icon icon="post_add" />
         </button>
         
     `,
