@@ -20,7 +20,7 @@
   background-color: #d2222e10;
 }
 .fullscreen-card .action button:focus {
-  transform: translate();
+  transform: translate(0px);
 }
 .fullscreen-card .action button {
   padding: 0;

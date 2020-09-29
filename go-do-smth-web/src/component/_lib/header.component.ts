@@ -15,7 +15,15 @@ export class HeaderComponent extends HTMLElement {
   title = '';
   up = '';
 
-  connectedCallback() {}
+  connectedCallback() {
+    const observer = new IntersectionObserver(
+      ([e]) => e.target.toggleAttribute('stuck', e.intersectionRatio < 1),
+      { threshold: [1] }
+    );
+    const nav = this.querySelector('nav');
+    console.log('a', nav);
+    if (nav) observer.observe(nav);
+  }
 
   attributeChangedCallback(name: any, oldValue: any, newValue: any) {
     if (name === 'title') this.title = newValue;

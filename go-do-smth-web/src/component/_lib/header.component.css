@@ -4,6 +4,13 @@ nav {
   justify-content: center;
   align-items: center;
   height: 56px;
+  position: sticky;
+  top: -1px;
+}
+nav[stuck] {
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.705);
+  z-index: 100;
 }
 nav button {
   position: absolute;
