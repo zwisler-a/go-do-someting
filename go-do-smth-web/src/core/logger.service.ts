@@ -1,9 +1,10 @@
 export const LoggerService = new (class {
+  private dev = true;
   constructor() {
     (window as any).log = [];
+    (window as any).printLog = this.pringLog.bind(this);
   }
 
-  private dev = false;
   debug(context: string, ...args: any[]) {
     if (this.dev) return console.log(`[${context}]`, ...args);
     this.addToLog(context, args);
@@ -18,7 +19,12 @@ export const LoggerService = new (class {
     (window as any).log.push([`[${context}]`, ...args]);
   }
 
-  setDevMode() {
-    this.dev = true;
+  private pringLog() {
+    const log: any[][] = (window as any).log;
+    log.forEach((entry) => console.log(...entry));
+  }
+
+  setProdMode() {
+    this.dev = false;
   }
 })();

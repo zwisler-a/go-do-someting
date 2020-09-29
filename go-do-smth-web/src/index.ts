@@ -2,7 +2,7 @@ import { LoggerService } from './core/logger.service';
 
 const devMode = window.location.origin.includes('localhost');
 
-if (devMode) LoggerService.setDevMode();
+if (!devMode) LoggerService.setProdMode();
 
 LoggerService.debug('Index', 'Application Startup');
 
