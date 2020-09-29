@@ -16,6 +16,7 @@
   -webkit-mask-size: 944px 604px;
   mix-blend-mode: multiply;
   animation: stamp 0.5s forwards;
+  white-space: nowrap;
 }
 
 .is-nope {

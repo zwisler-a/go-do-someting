@@ -5,22 +5,21 @@ import { TodoService } from '../todo.service';
 @CustomElement({
   selector: 'app-todo-view',
   template: `
-        <app-header bind="title:title"></app-header>
-        <app-card bind="class:formClass:true">
+        <app-header bind="title:todoName"></app-header>
+        <app-card bindAttribute="class:formClass">
           <form id="form" >
               <input bind="value:todoName" placeholder="Name" id="name" name="name" />
               <textarea bind="value:todoDesc" placeholder="Description" id="description" name="description"></textarea>
               <button onclick="§§.submit(...arguments)">Speichern</button>
           </form>
         </app-card>
-        <app-loading bind="class:loadingClass:true"></app-loading>
+        <app-loading bindAttribute="class:loadingClass"></app-loading>
         <button class="action icon" onclick="§§.delete()">
           <app-icon icon="delete" />
         </button>
     `,
 })
 export class TodoViewComponent extends HTMLElement {
-  title!: string;
   todoName!: string;
   todoDesc!: string;
   formEl!: HTMLFormElement;

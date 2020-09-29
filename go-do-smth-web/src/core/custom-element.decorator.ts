@@ -20,7 +20,7 @@ export function CustomElement(config: CustomElementConfig) {
       this.content = processHtml(this.innerHTML, templateConfig);
       this.innerHTML = processHtml(config.template, templateConfig);
 
-      bindData(this);
+      bindData(this, id);
 
       connectedCallback.call(this);
     };

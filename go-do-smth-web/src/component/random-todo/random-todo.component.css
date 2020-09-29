@@ -3,8 +3,8 @@
   flex-direction: column;
 }
 .fullscreen-card-wrapper {
-  height: 100%;
-  padding: 5vh 16px 0 16px;
+  height: calc(100% - 56px);
+  padding: 0 16px;
   box-sizing: border-box;
   display: flex;
 }
@@ -18,6 +18,9 @@
   color: #d2222d;
   border-color: #d2222d;
   background-color: #d2222e10;
+}
+.fullscreen-card .action button:focus {
+  transform: translate();
 }
 .fullscreen-card .action button {
   padding: 0;

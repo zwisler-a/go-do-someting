@@ -4,7 +4,8 @@ import { TodoService } from '../todo.service';
 @CustomElement({
   selector: 'app-random-todo',
   template: `
-        <div bind="class:cardClass:true" class="fullscreen-card-wrapper">
+        <app-header uo="app-main"></app-header>
+        <div bindAttribute="class:cardClass">
           <app-card class="fullscreen-card">
             <h1 class="fadein" bind="innerText:todoName"></h1>
             <p class="fadein" bind="innerText:todoDesc"></p>
@@ -14,7 +15,7 @@ import { TodoService } from '../todo.service';
             </div>
           </app-card>
         </div>
-        <div bind="class:loadingClass:true"><app-loading></app-loading></div>
+        <div bindAttribute="class:loadingClass"><app-loading></app-loading></div>
         <app-stamp bind="type:stamped"></app-stamp>
     `,
 })
@@ -31,22 +32,24 @@ export class RandomTodoComponent extends HTMLElement {
     this.loadingClass = `${loading ? '' : 'hidden'}`;
   }
 
-  async connectedCallback() {
-    this.setLoading(true);
+  connectedCallback() {
+    this.loadTodo();
+  }
+
+  private async loadTodo(showLoading = true) {
+    this.stamped = ``;
+    if (showLoading) this.setLoading(true);
     this.todo = await TodoService.fetchRandomTodo();
     this.setLoading(false);
     this.todoName = this.todo.name;
     this.todoDesc = this.todo.description;
-  }
-  navigateBack() {
-    window.history.back();
   }
 
   ok() {
     this.stamped = 'ok';
     TodoService.recordDecision(this.todo.id, true);
     setTimeout(() => {
-      window.history.back();
+      this.loadTodo(false);
     }, 1000);
   }
 
@@ -54,7 +57,7 @@ export class RandomTodoComponent extends HTMLElement {
     this.stamped = 'nok';
     TodoService.recordDecision(this.todo.id, false);
     setTimeout(() => {
-      window.history.back();
+      this.loadTodo(false);
     }, 1000);
   }
 }
