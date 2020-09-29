@@ -6,7 +6,6 @@ import { EventEmitter } from '../../core/event-emitter.util';
   template: ``,
 })
 export class StampComponent extends HTMLElement {
-  testEmitter = new EventEmitter('test', this);
 
   set type(value: string) {
     if (value === 'ok') this.showOk();

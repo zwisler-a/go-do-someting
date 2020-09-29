@@ -1,4 +1,5 @@
 import { CustomElement } from '../../core/custom-element.decorator';
+import { getRouterData } from '../../core/router/router.service';
 import { TodoService } from '../todo.service';
 
 @CustomElement({
@@ -25,6 +26,7 @@ export class RandomTodoComponent extends HTMLElement {
   stamped = '';
   cardClass = ``;
   loadingClass = ``;
+  loading = false;
   todo: any;
 
   private setLoading(loading: boolean) {
@@ -33,31 +35,40 @@ export class RandomTodoComponent extends HTMLElement {
   }
 
   connectedCallback() {
-    this.loadTodo();
+    this.loadTodo(false, getRouterData(this));
   }
 
-  private async loadTodo(showLoading = true) {
-    this.stamped = ``;
+  private async loadTodo(showLoading = true, preloadedTodo?: Promise<any>) {
     if (showLoading) this.setLoading(true);
-    this.todo = await TodoService.fetchRandomTodo();
+    this.todo = preloadedTodo
+      ? await preloadedTodo
+      : await TodoService.fetchRandomTodo();
     this.setLoading(false);
+    this.stamped = ``;
     this.todoName = this.todo.name;
     this.todoDesc = this.todo.description;
   }
 
-  ok() {
-    this.stamped = 'ok';
-    TodoService.recordDecision(this.todo.id, true);
+  private showNewTodo() {
+    this.loading = true;
+    const todoPromise = TodoService.fetchRandomTodo();
     setTimeout(() => {
-      this.loadTodo(false);
+      this.loadTodo(false, todoPromise);
+      this.loading = false;
     }, 1000);
   }
 
+  ok() {
+    if (this.loading) return;
+    this.stamped = 'ok';
+    TodoService.recordDecision(this.todo.id, true);
+    this.showNewTodo();
+  }
+
   nok() {
+    if (this.loading) return;
     this.stamped = 'nok';
     TodoService.recordDecision(this.todo.id, false);
-    setTimeout(() => {
-      this.loadTodo(false);
-    }, 1000);
+    this.showNewTodo();
   }
 }

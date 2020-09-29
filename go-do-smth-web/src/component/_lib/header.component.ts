@@ -27,7 +27,6 @@ export class HeaderComponent extends HTMLElement {
   }
 
   navigateBack() {
-    console.log(this.up);
     if (this.up) return RouterService.navigate('main', this.up);
     window.history.back();
   }

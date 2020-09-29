@@ -1,5 +1,6 @@
 import { CustomElement } from '../../core/custom-element.decorator';
 import { RouterService } from '../../core/router/router.service';
+import { TodoService } from '../todo.service';
 
 @CustomElement({
   selector: 'app-main',
@@ -20,8 +21,9 @@ export class MainComponent extends HTMLElement {
   fetchRandomTodo() {
     if (this.mainButtonDisabled) return;
     this.mainButtonDisabled = true;
+    const todoPromise = TodoService.fetchRandomTodo();
     setTimeout(() => {
-      RouterService.navigate('main', 'app-random-todo');
+      RouterService.navigate('main', 'app-random-todo', todoPromise);
     }, 500);
   }
 
