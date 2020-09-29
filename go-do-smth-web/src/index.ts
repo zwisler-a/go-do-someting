@@ -2,7 +2,7 @@ import { LoggerService } from './core/logger.service';
 
 const devMode = window.location.origin.includes('localhost');
 
-if(devMode) LoggerService.setDevMode();
+if (devMode) LoggerService.setDevMode();
 
 LoggerService.debug('Index', 'Application Startup');
 
@@ -16,13 +16,14 @@ if ('serviceWorker' in navigator && !devMode) {
     navigator.serviceWorker.register('/sw.js').then(
       function (registration) {
         // Registration was successful
-        console.log(
+        LoggerService.debug(
+          'SW',
           'ServiceWorker registration successful with scope: ',
           registration.scope
         );
       },
       function (err) {
-        console.log('ServiceWorker registration failed: ', err);
+        LoggerService.error('SW', 'ServiceWorker registration failed: ', err);
       }
     );
   });
