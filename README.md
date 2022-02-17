@@ -14,6 +14,7 @@
 <br />
 
 # Go Do Something
-An activity suggestion PWA created using Web Components, Typescript and NestJS.
 
 <img  src="/preview.png" style="border-radius:50%" />
+
+An activity suggestion PWA created using Web Components, Typescript and NestJS.
