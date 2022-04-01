@@ -6,8 +6,6 @@
 
   <p align="center">
     An activity suggestion PWA
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
   </p>
 </div>
 <br />
